@@ -2,11 +2,7 @@
 
 import clsx from "clsx";
 
-export default async function PokemonCardType({
-    typeName
-}: {
-    typeName: string
-}){
+function getColor(typeName: string): [string, string]{
     let bgColor = "bg-slate-400";
     let textColor = "text-slate-100";
     switch (typeName){
@@ -75,6 +71,15 @@ export default async function PokemonCardType({
             textColor = "text-emerald-100"
             break
     }
+    return [bgColor, textColor]
+}
+
+export default async function PokemonCardType({
+    typeName
+}: {
+    typeName: string
+}){
+    const [bgColor, textColor] = getColor(typeName);
     return (
         <p className={clsx(
             "text-xs font-semibold inline-block p-1 rounded-md",
