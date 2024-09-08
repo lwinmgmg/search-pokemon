@@ -23,3 +23,52 @@ export async function getPokemonInfos(offset: number, limit: number): Promise<Ar
     }
     return [];
 }
+
+const singleQuery = `
+query pokemon($id: String, $name: String){
+  pokemon(id: $id, name: $name){
+    id
+    number
+    name
+    weight{
+      minimum
+      maximum
+    }
+    height{
+      minimum
+      maximum
+    }
+    classification
+    types
+    resistant
+    weaknesses
+    fleeRate
+    maxCP
+    maxHP
+    image
+    evolutionRequirements{
+        amount
+        name
+    }
+    attacks{
+        fast{
+            name
+            type
+            damage
+        }
+        special{
+            name
+            type
+            damage
+        }
+    }
+  }
+}
+`
+export async function getPokemon<T>(id: string): Promise<T | undefined>{
+    const variables = {
+        id
+    };
+    const data = await fetchData<FetchPokemonResponse<T>>(singleQuery, variables);
+    return data.data.pokemon
+}

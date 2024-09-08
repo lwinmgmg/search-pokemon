@@ -9,6 +9,7 @@ export default async function fetchData<T>(query: string, variables: NonNullable
         method: "POST",
         headers: myHeaders,
         body: graphql,
+        next: { revalidate: 3600 }
     };
     const data = await fetch(process.env.BACK_END_URL || "https://graphql-pokemon2.vercel.app/", requestOptions)
     return await data.json() as T

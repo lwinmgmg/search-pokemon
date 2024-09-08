@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PokemonCardType from "./PokemonCardType";
+import PokemonImage from "./PokemonImage";
 
 export default function PokemonCard({
     pokemon
@@ -11,12 +12,7 @@ export default function PokemonCard({
             <Link href={`/pokemons/${pokemon.id}`}>
                 <div className="w-40 py-2 ring-1 ring-slate-300 bg-blue-100 rounded-lg shadow-lg hover:shadow-xl dark:shadow-slate-500">
                     <div className="flex flex-row justify-center">
-                        <div className="h-32 w-32 rounded-full" style={{
-                            backgroundImage: `url(${pokemon.image})`,
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                        }}>
-                        </div>
+                        <PokemonImage image={pokemon.image} />
                     </div>
                     <div className="p-2 text-blue-700 space-y-1">
                         <h1 className="text-sm text-center font-bold">{pokemon.name}</h1>
