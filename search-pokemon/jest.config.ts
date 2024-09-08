@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from 'jest'
 import nextJest from 'next/jest.js'
  
 const createJestConfig = nextJest({
@@ -32,15 +32,16 @@ const config: Config = {
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
-
+  coverageProvider: 'v8',
+  testEnvironment: 'jsdom',
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
-  testEnvironment: 'jsdom',
+  // coverageProvider: "babel",
+
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
   //   "json",
@@ -202,4 +203,4 @@ const config: Config = {
   // watchman: true,
 };
 
-export default config;
+export default createJestConfig(config)

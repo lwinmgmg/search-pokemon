@@ -1,4 +1,4 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
-  "ignorePatterns": ["app/lib/types/*"]
+  "ignorePatterns": ["app/lib/types/*", "**/*.test.ts"]
 }
