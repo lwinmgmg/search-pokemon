@@ -23,7 +23,8 @@
 				"xabikos.JavaScriptSnippets",
 				"ms-vscode.vscode-typescript-next",
 				"mgmcdermott.vscode-language-babel",
-				"ms-vscode.js-debug-nightly"
+				"ms-vscode.js-debug-nightly",
+				"bradlc.vscode-tailwindcss"
 			]
 		}
 	}
