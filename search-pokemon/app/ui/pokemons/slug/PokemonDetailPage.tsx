@@ -10,7 +10,7 @@ export default function PokemonDetailPage({
     pokemon: PokemonDetail
 }){
     return (
-        <div className="max-w-3xl p-5">
+        <div className="max-w-3xl px-5">
             <div>
                 <BackBtn />
             </div>

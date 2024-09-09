@@ -35,7 +35,7 @@ export default function Evolution({
                                 pokemon.evolutions.map(pkm=><PokemonCard key={pkm.id} pokemon={pkm} />)
                             }
                         </>
-                    ) : <p className="flex flex-col justify-center items-center text-sm font-bold">No Evolutions Found</p>
+                    ) : <p className="flex flex-col justify-center items-center text-sm font-bold">Already Max Evolution</p>
                 }
             </div>
         </div>

@@ -80,3 +80,21 @@ export async function getPokemon<T>(id: string): Promise<T | undefined>{
     const data = await fetchData<FetchPokemonResponse<T>>(singleQuery, variables);
     return data.data.pokemon
 }
+
+const preFetchQuery = `
+query pokemons($first: Int!){
+    pokemons(first: $first){
+        id
+        name
+        image
+    }
+}
+`
+
+export async function prefetchPokemons() {
+    const variables = {
+        first: -1
+    };
+    const data = await fetchData<FetchPokemonsResponse<PreFetchPokemon>>(preFetchQuery, variables);
+    return data.data.pokemons
+}

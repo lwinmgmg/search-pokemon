@@ -15,7 +15,7 @@ export default async function HomePage({
     const [offset, limitNumber] = calculateOffset(page, limit)
     const pokemons = await getPokemonInfos(offset, limitNumber);
     return (
-        <div className="h-full w-full flex flex-col items-center py-10 space-y-5">
+        <div className="h-full w-full flex flex-col items-center space-y-5">
             <PokemonHolder pokemons={pokemons} />
             <HomePagination page={page} limit={limit} currentCount={pokemons.length} />
         </div>

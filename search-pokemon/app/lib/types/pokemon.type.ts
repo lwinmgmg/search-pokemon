@@ -1,14 +1,12 @@
-interface PokemonInfo {
+interface PreFetchPokemon{
     id: string,
     name: string,
-    image: string,
-    maxCP: number,
-    maxHP: number,
-    types: Array<string>
+    image: string
 }
 
-type PreFetchPokemon = {
-    name: string,
+interface PokemonInfo extends PreFetchPokemon {
+    maxCP: number,
+    maxHP: number,
     types: Array<string>
 }
 

@@ -1,5 +1,5 @@
 import { describe, expect, test, jest } from '@jest/globals';
-import { getPokemon, getPokemonInfos } from './pokemon';
+import { getPokemon, getPokemonInfos, prefetchPokemons } from './pokemon';
 
 describe("Testing for pokemon.ts", () => {
     const mockData: FetchPokemonsResponse<PokemonInfo> = {
@@ -133,5 +133,13 @@ describe("Testing for pokemon.ts", () => {
         const pokemon = await getPokemon<PokemonInfo>("NoDataID");
         // Asserts
         expect(pokemon).toBeFalsy()
+    })
+
+    test("Get ALL prefetchPokemon", async () => {
+        // Acts
+        (global.fetch as any) = jest.fn(() => Promise.resolve({ json: () => Promise.resolve(mockData) }));
+        const pokemons = await prefetchPokemons();
+        // Asserts
+        expect(pokemons.length).toBe(3)
     })
 })
