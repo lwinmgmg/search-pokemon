@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PokemonCardType from "./PokemonCardType";
 import PokemonImage from "./PokemonImage";
+import FavoriteIcon from "./FavoriteIcon";
 
 export default function PokemonCard({
     pokemon
@@ -10,7 +11,7 @@ export default function PokemonCard({
     return (
         <div className="relative">
             <Link href={`/pokemons/${pokemon.id}`}>
-                <div className="w-40 py-2 ring-1 ring-slate-300 bg-blue-100 rounded-lg shadow-lg hover:shadow-xl dark:shadow-slate-500">
+                <div className="w-40 py-2 ring-1 ring-slate-300 bg-blue-100 rounded-lg shadow-lg hover:shadow-xl dark:shadow-slate-500 relative">
                     <div className="flex flex-row justify-center">
                         <PokemonImage image={pokemon.image} />
                     </div>
@@ -24,6 +25,7 @@ export default function PokemonCard({
                         <div className="h-4 w-full bg-green-500 rounded-full text-xs text-center text-slate-50">HP - {pokemon.maxHP}</div>
                         <div className="h-4 w-full bg-blue-400 rounded-full text-xs text-center text-slate-50">CP - {pokemon.maxCP}</div>
                     </div>
+                    <FavoriteIcon id={pokemon.id} className="w-8 h-8 absolute top-0 right-0" />
                 </div>
             </Link>
             <div>

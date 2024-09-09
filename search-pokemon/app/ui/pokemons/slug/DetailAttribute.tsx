@@ -1,5 +1,6 @@
 import PokemonCardType from "../../components/PokemonCardType";
 import Attribute from "./Attribute";
+import DetailFavoriteIcon from "./DetailFavoriteIcon";
 
 export default function DetailAttribue({
     pokemon
@@ -40,7 +41,7 @@ export default function DetailAttribue({
                     pokemon.weaknesses?.map(tpy=><PokemonCardType key={tpy} typeName={tpy} />)
                 }
             </div>
-
+            <DetailFavoriteIcon id={pokemon.id} />
         </div>
     );
 }

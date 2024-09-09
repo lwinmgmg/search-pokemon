@@ -14,7 +14,12 @@ export default async function SearchPage({
     return (
         <div className="h-full w-full flex flex-col items-center space-y-5">
             <p>Search Result {'"' + search + '"'}</p>
-            <PokemonHolder pokemons={pokemons} />
+            {
+                pokemons.length > 0 ? <PokemonHolder pokemons={pokemons} />
+                : (
+                    <p className="text-sm font-bold">No Pokemon Found</p>
+                )
+            }
         </div>
     );
 }

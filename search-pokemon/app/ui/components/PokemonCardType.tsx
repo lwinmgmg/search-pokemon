@@ -1,9 +1,7 @@
-"use server";
-
 import getTypeColor from "@/app/lib/getTypeColor";
 import clsx from "clsx";
 
-export default async function PokemonCardType({
+export default function PokemonCardType({
     typeName
 }: {
     typeName: string
