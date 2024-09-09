@@ -2,6 +2,7 @@ import BackBtn from "../../components/BackBtn";
 import DetailAttacks from "./DetailAttacks";
 import DetailAttribue from "./DetailAttribute";
 import DetailImage from "./DetailImage";
+import Evolution from "./Evolution";
 
 export default function PokemonDetailPage({
     pokemon
@@ -32,6 +33,9 @@ export default function PokemonDetailPage({
             <div className="space-y-1 py-1 w-80 md:w-full">
                 <DetailAttacks attacks={pokemon.attacks?.fast || []}>Fast Attacks</DetailAttacks>
                 <DetailAttacks attacks={pokemon.attacks?.special || []}>Special Attacks</DetailAttacks>
+            </div>
+            <div className="w-80 md:w-full">
+                <Evolution pokemon={pokemon} />
             </div>
         </div>
     );

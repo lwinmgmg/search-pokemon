@@ -1,4 +1,4 @@
-type PokemonInfo = {
+interface PokemonInfo {
     id: string,
     name: string,
     image: string,
@@ -37,7 +37,7 @@ type PokemonDetail =  {
         maximum: string
     },
     classification: string,
-    types?: Array<string>,
+    types: Array<string>,
     resistant?: Array<string>,
     weaknesses?: Array<string>,
     fleeRate: number,

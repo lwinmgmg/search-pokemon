@@ -62,6 +62,14 @@ query pokemon($id: String, $name: String){
             damage
         }
     }
+    evolutions{
+        id
+        name
+        maxCP
+        maxHP
+        image
+        types
+    }
   }
 }
 `
