@@ -5,7 +5,7 @@ export default function NavBarMenus(){
     return (
         <div className="flex flex-row items-center space-x-3">
             <DarkModeSwitch />
-            <Link href="/favorites" className="text-lg font-semibold">Favorites</Link>
+            <Link href="/pokemons/favorites" className="text-lg font-semibold">Favorites</Link>
         </div>
     )
 }

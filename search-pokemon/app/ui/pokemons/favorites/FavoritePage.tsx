@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useEffect, useState } from "react";
-import PokemonHolder from "../components/PokemonHolder";
+import PokemonHolder from "@/app/ui/components/PokemonHolder";
 import { FavContext } from "@/app/lib/store/context/favContext";
 import { getInfoByIds } from "@/app/lib/store/data/pokemon";
 
