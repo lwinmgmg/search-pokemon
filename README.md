@@ -8,7 +8,7 @@ UI Link
 https://search-pokemon-lmm.vercel.app/
 
 ### Pages
- 1. Pokemon kanban view "/"
+ 1. Pokemon kanban view (Pagination using searchParam ***page*** and ***limit***) "/"
  2. Pokemon detail view "/pokemons/<id: string>"
  3. Pokemon search view "/pokemons/search"
  4. Pokemon favorite view "/pokemons/favorites"
