@@ -6,6 +6,7 @@ export default function PokemonImage({image}:{
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "center"
         }}>
         </div>
     );

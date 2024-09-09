@@ -1,3 +1,4 @@
+import BackBtn from "../../components/BackBtn";
 import DetailAttacks from "./DetailAttacks";
 import DetailAttribue from "./DetailAttribute";
 import DetailImage from "./DetailImage";
@@ -9,6 +10,9 @@ export default function PokemonDetailPage({
 }){
     return (
         <div className="max-w-3xl p-5">
+            <div>
+                <BackBtn />
+            </div>
             <h1 className="text-2xl font-semibold text-center mb-2">{pokemon.name}</h1>
             <div className="flex flex-col md:flex-row md:justify-stretch">
                 <div className="space-y-1">
@@ -20,12 +24,12 @@ export default function PokemonDetailPage({
                         <p className="text-center font-bold">CP - {pokemon.maxCP}</p>
                     </div>
                 </div>
-                <div className="w-5"></div>
+                <div className="w-5 h-2"></div>
                 <div className="">
                     <DetailAttribue pokemon={pokemon} />
                 </div>
             </div>
-            <div className="space-y-1 py-1">
+            <div className="space-y-1 py-1 w-80 md:w-full">
                 <DetailAttacks attacks={pokemon.attacks?.fast || []}>Fast Attacks</DetailAttacks>
                 <DetailAttacks attacks={pokemon.attacks?.special || []}>Special Attacks</DetailAttacks>
             </div>
