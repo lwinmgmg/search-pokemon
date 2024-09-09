@@ -1,3 +1,5 @@
+"use server";
+
 import fetchData from "../../requests/graphql";
 
 const query = `
@@ -97,4 +99,27 @@ export async function prefetchPokemons() {
     };
     const data = await fetchData<FetchPokemonsResponse<PreFetchPokemon>>(preFetchQuery, variables);
     return data.data.pokemons
+}
+
+const infoByIdQuery =`
+query pokemon($id: String, $name: String){
+  pokemon(id: $id, name: $name){
+    id
+    name
+    maxCP
+    maxHP
+    image
+    types
+  }
+}
+`
+
+export async function getInfoByIds(ids: Array<string>){
+    const resList = await Promise.all(ids.map(id=>{
+        const variables = {
+            id
+        }
+        return fetchData<FetchPokemonResponse<PokemonInfo>>(infoByIdQuery, variables)
+    }))
+    return resList.map(res=>res.data.pokemon).filter(res=>res != undefined)
 }
