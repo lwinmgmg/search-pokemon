@@ -4,7 +4,6 @@ import "./globals.css";
 import NavBar from "./ui/navbar/NavBar";
 import SearchHolder from "./ui/search-holder/SearchHolder";
 import FavContextProvider from "./ui/components/FavContextProvider";
-import { CookiesProvider } from "next-client-cookies/server";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,11 +33,9 @@ export default function RootLayout({
       >
         <NavBar />
         <SearchHolder />
-        <CookiesProvider>
           <FavContextProvider>
             {children}
           </FavContextProvider>
-        </CookiesProvider>
       </body>
     </html>
   );

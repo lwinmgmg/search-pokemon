@@ -3,14 +3,14 @@
 import { MouseEvent, useContext } from "react";
 import FavoriteIcon from "../../components/FavoriteIcon";
 import { FavContext, FavCtxPatcher } from "@/app/lib/store/context/favContext";
-import { useCookies } from "next-client-cookies";
+import Cookies from "universal-cookie";
 
 export default function DetailFavoriteIcon({
     id
 }:{
     id: string
 }){
-    const cookie = useCookies();
+    const cookie = new Cookies();
     const favorites = useContext(FavContext);
     const dispatch = useContext(FavCtxPatcher);
     const onClick = (e: MouseEvent<HTMLButtonElement>)=>{

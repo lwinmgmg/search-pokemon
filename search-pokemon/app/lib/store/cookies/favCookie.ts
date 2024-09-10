@@ -1,12 +1,11 @@
-import { Cookies } from "next-client-cookies";
+import Cookies from "universal-cookie";
 
 const favCookieName = "FAV-COOKIE"
 
-export function setFavCookie(value: Array<string>, cookie: Cookies){
-    cookie.set(favCookieName, JSON.stringify(value));
+export function setFavCookie(value: Array<string>, cookies: Cookies){
+    cookies.set(favCookieName,  value);
 }
 
-export function getFavCookie(cookie: Cookies){
-    const valueStr = cookie.get(favCookieName) || "[]";
-    return JSON.parse(valueStr)
+export function getFavCookie(cookies: Cookies): Array<string>{
+    return cookies.get(favCookieName) || []
 }

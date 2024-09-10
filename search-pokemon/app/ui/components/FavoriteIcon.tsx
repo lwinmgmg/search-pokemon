@@ -2,8 +2,8 @@
 
 import { FavContext, FavCtxPatcher } from "@/app/lib/store/context/favContext";
 import clsx from "clsx";
-import { useCookies } from "next-client-cookies";
 import { MouseEvent, useContext } from "react";
+import Cookies from "universal-cookie";
 
 export default function FavoriteIcon({
     id,
@@ -14,7 +14,7 @@ export default function FavoriteIcon({
     className?: string,
     size?: string
 }){
-    const cookie = useCookies()
+    const cookie = new Cookies();
     const favorites = useContext(FavContext);
     const dispatch = useContext(FavCtxPatcher);
     const onClick = (e: MouseEvent<HTMLDivElement>)=>{

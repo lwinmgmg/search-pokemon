@@ -1,11 +1,11 @@
-import { Cookies } from "next-client-cookies";
 import { createContext } from "react";
 import { setFavCookie } from "../cookies/favCookie";
+import { Cookie } from "universal-cookie";
 
 type favReducerType = {
     type: "C" | "D",
     value?: Array<string> | string,
-    cookie?: Cookies
+    cookie?: Cookie
 }
 
 export const FavContext = createContext<Array<string>>([]);
@@ -29,6 +29,7 @@ export function favReducer(initVals: Array<string>, state: favReducerType): Arra
             }
             break
     }
+    newValue = newValue.filter((value, index, array) => array.indexOf(value) === index);
     if (state.cookie){
         setFavCookie(newValue, state.cookie);
     }
